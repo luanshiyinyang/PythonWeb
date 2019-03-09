@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'app2', include('app2.urls')),
     url(r'year/(?P<year>[0-9]{4})/', views.year, name="when"),
     url(r'year2', views.year2),
+    url(r'formtest', views.formtest),
+    url(r'hello', views.hello, name='hello'),
 ]

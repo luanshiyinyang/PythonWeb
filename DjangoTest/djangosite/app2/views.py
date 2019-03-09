@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from app2 import models
 from django.core.urlresolvers import reverse
+from app2.forms import UserForm
 
 
 def users(request):
@@ -23,3 +24,16 @@ def year(request, year):
 
 def year2(request):
     return HttpResponseRedirect(reverse('when', args=['1998']))
+
+
+def formtest(request):
+    form = UserForm()
+    return render(request, 'render.html', {'user': form})
+
+
+def hello(request):
+    form = UserForm(request.POST)
+    if form.is_valid():
+        return HttpResponse("Hello World!!!")
+    else:
+        return HttpResponse("Error")

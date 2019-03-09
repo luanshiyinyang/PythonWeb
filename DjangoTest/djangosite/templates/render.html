@@ -5,6 +5,10 @@
     <title>{{year}}</title>
 </head>
 <body>
+<form action="{% url 'hello' %}">
+    {{ user }}
+<button type="submit">Submit</button>
+</form>
 
 </body>
 </html>
