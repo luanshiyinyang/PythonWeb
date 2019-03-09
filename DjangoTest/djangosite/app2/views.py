@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from app2 import models
+from django.core.urlresolvers import reverse
 
 
 def users(request):
@@ -14,3 +15,11 @@ def users(request):
     user.save()
     models.User.objects.create(name="名称3", age=22)
     return HttpResponse("执行完成")
+
+
+def year(request, year):
+    return render(request, 'render.html', {'year': year, })
+
+
+def year2(request):
+    return HttpResponseRedirect(reverse('when', args=['1998']))
